@@ -3,6 +3,7 @@ const express = require("express")
 const massive = require("massive")
 const session = require("express-session")
 const authCtrl = require("./controllers/authController")
+const treasCtrl = require("./controllers/treasureController")
 
 const app = express()
 const port = 4000
@@ -27,9 +28,11 @@ app.use(session({
 }))
 
 // --Endpoints-- //
+// Auth
 app.post("/auth/register", authCtrl.register)
 app.post("/auth/login", authCtrl.login)
 app.get("/auth/logout", authCtrl.logout)
 
-
+// Treasure
+app.get("/api/treasure/dragon", treasCtrl.dragonTreasure)
 
