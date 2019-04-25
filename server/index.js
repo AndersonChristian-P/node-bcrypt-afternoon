@@ -4,6 +4,7 @@ const massive = require("massive")
 const session = require("express-session")
 const authCtrl = require("./controllers/authController")
 const treasCtrl = require("./controllers/treasureController")
+const auth = require("./middleware/authMiddleware")
 
 const app = express()
 const port = 4000
@@ -35,4 +36,5 @@ app.get("/auth/logout", authCtrl.logout)
 
 // Treasure
 app.get("/api/treasure/dragon", treasCtrl.dragonTreasure)
+app.get("/api/treasure/user", auth.usersOnly, treasCtrl.getUserTreasure) // make sure you reference the method with the middleware
 
