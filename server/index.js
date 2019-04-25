@@ -37,4 +37,5 @@ app.get("/auth/logout", authCtrl.logout)
 // Treasure
 app.get("/api/treasure/dragon", treasCtrl.dragonTreasure)
 app.get("/api/treasure/user", auth.usersOnly, treasCtrl.getUserTreasure) // make sure you reference the method with the middleware
+app.post("/api/treasure/user", auth.usersOnly, treasCtrl.addMyTreasure)
 
