@@ -1,3 +1,5 @@
+-- table exists in Heroku under massive-node3
+
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users
