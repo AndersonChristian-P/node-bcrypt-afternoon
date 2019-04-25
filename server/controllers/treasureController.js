@@ -25,6 +25,14 @@ module.exports = {
 
     return res.status(200).send(userTreasure)
 
+  },
+
+  getAllTreasure: async (req, res) => {
+    const db = req.app.get("db")
+
+    let allTreasure = await db.get_all_treasure()
+
+    return res.status(200).send(allTreasure)
   }
 }
 
