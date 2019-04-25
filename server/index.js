@@ -2,6 +2,7 @@ require("dotenv").config()
 const express = require("express")
 const massive = require("massive")
 const session = require("express-session")
+const authCtrl = require("./controllers/authController")
 
 const app = express()
 const port = 4000
@@ -25,6 +26,8 @@ app.use(session({
   saveUninitialized: false
 }))
 
+// --Endpoints-- //
+app.post("/auth/register", authCtrl.register)
 
 
 
